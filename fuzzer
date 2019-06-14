@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "Java Source Code Absolute Path: $1"
+echo "Java Source Code Name: $2"
+echo "Length of the Printable Chars: $3"
+echo "Enable Loop Detection: $4"
+
+cp $1/$2 src/source/.
+javac src/source/$2
+
+javac -cp src/ src/Main.java
+cd src/
+java Main $1 $2 $3 $4
